@@ -17,7 +17,7 @@ const OrderCtrl = {
                 name, last_name, email, gests, appartement: appartement, from, to, phone
             })
             await order.save()
-            sendMail('new order', process.env.ADMIN_EMAIL, '', '')
+            // sendMail('new order', process.env.ADMIN_EMAIL, '', '')
 
             return res.status(200).json({ success: true, data: order })
         } catch (err) {
@@ -41,7 +41,7 @@ const OrderCtrl = {
             let order = await Order.findByIdAndUpdate({ _id: id }, {
                 verified
             });
-            sendMail('order confirmed', order.email, '', '')
+            // sendMail('order confirmed', order.email, '', '')
             
             return res.status(200).json({ success: true, data: 'Order Verified successfuly!!' })
         } catch (err) {
